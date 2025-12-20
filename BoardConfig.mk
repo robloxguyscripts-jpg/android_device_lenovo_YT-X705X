@@ -28,7 +28,6 @@ BOARD_BOOTIMG_HEADER_VERSION := 1
 BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_RAMDISK_OFFSET := 0x01000000
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
-# Updated offset for DTBO in Header V1
 BOARD_RECOVERY_DTBO_OFFSET := 0x01465000
 
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
@@ -48,3 +47,12 @@ TW_EXTRA_LANGUAGES := true
 TW_DEVICE_VERSION := 1
 TW_INPUT_BLACKLIST := "hbtp_vm"
 ALLOW_MISSING_DEPENDENCIES := true
+
+# Fix for "could not make way for new symlink: root/etc"
+# This tells the build system to use the Toybox/Toolbox logic for the ramdisk
+TW_USE_TOOLBOX := true
+BOARD_HAS_NO_SELECT_BUTTON := true
+
+# USB Configuration
+TARGET_USES_MKE2FS := true
+BOARD_SUPPRESS_SECURE_ERASE := true
