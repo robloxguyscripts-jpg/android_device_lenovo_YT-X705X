@@ -5,7 +5,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit TWRP common configuration
 $(call inherit-product, vendor/twrp/config/common.mk)
 
-# Inherit from your device.mk (Fixed version)
+# Inherit from our fixed device.mk
 $(call inherit-product, device/lenovo/YT_X705X/device.mk)
 
 # Device identifier
