@@ -9,13 +9,15 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common Omni stuff.
-$(call inherit-product, vendor/omni/config/common.mk)
+# Add these for AOSP manifest compatibility (Replaces the missing vendor/omni)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-# Inherit from YT_X705X device - Note the underscore here
+# Inherit from YT_X705X device
+# Ensure this path matches exactly where your tree is cloned
 $(call inherit-product, device/lenovo/YT-X705X/device.mk)
 
-# Use underscores to avoid the "Invalid Variant" build error
+# Product naming (Using underscores to fix the "Invalid Variant" error)
 PRODUCT_DEVICE := YT_X705X
 PRODUCT_NAME := omni_YT_X705X
 PRODUCT_BRAND := Lenovo
