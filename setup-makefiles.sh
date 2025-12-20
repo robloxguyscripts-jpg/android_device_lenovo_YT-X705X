@@ -8,7 +8,8 @@
 
 set -e
 
-DEVICE=YT-X705X
+# Fix: Use underscore to match the TARGET_DEVICE in your TWRP tree
+DEVICE=YT_X705X
 VENDOR=lenovo
 
 # Load extract_utils and do some sanity checks
@@ -34,3 +35,4 @@ write_makefiles "${MY_DIR}/proprietary-files.txt" true
 
 # Finish
 write_footers
+
