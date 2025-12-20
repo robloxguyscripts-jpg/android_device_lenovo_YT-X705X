@@ -1,4 +1,4 @@
-DEVICE_PATH := device/lenovo/android_device_lenovo_YT-X705X
+DEVICE_PATH := device/lenovo/YT_X705X
 
 # Architecture
 TARGET_ARCH := arm64
