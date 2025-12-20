@@ -47,5 +47,7 @@ TW_EXTRA_LANGUAGES := true
 TW_DEVICE_VERSION := 1
 TW_INPUT_BLACKLIST := "hbtp_vm"
 ALLOW_MISSING_DEPENDENCIES := true
+
+# Brute force fix for the symlink error
 TW_USE_TOOLBOX := true
 BOARD_HAS_NO_SELECT_BUTTON := true
