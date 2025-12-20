@@ -12,11 +12,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit some common Omni stuff.
 $(call inherit-product, vendor/omni/config/common.mk)
 
-# Inherit from YT-X705X device
+# Inherit from YT_X705X device - Note the underscore here
 $(call inherit-product, device/lenovo/YT-X705X/device.mk)
 
-PRODUCT_DEVICE := YT-X705X
-PRODUCT_NAME := omni_YT-X705X
+# Use underscores to avoid the "Invalid Variant" build error
+PRODUCT_DEVICE := YT_X705X
+PRODUCT_NAME := omni_YT_X705X
 PRODUCT_BRAND := Lenovo
 PRODUCT_MODEL := Lenovo YT-X705X
 PRODUCT_MANUFACTURER := lenovo
