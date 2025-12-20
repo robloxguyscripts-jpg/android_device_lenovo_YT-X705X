@@ -21,5 +21,5 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Copy hardware configs from your main branch into the TWRP image
 PRODUCT_COPY_FILES += \
-    device/lenovo/android_device_lenovo_YT-X705X/recovery.fstab:recovery/root/system/etc/recovery.fstab \
-    device/lenovo/android_device_lenovo_YT-X705X/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc
+    $(DEVICE_PATH)/recovery.fstab:recovery/root/system/etc/recovery.fstab \
+    $(DEVICE_PATH)/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc
