@@ -8,15 +8,13 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
-# Add these for AOSP manifest compatibility
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-# Inherit from YT_X705X device - PATH UPDATED TO UNDERSCORE
+# --- THE FIX: Point to the folder name created by the Workflow ---
 $(call inherit-product, device/lenovo/YT_X705X/device.mk)
 
-# Product naming
+# Product naming - Must match the lunch target
 PRODUCT_DEVICE := YT_X705X
 PRODUCT_NAME := omni_YT_X705X
 PRODUCT_BRAND := Lenovo
