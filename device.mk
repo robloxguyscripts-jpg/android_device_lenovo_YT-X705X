@@ -13,8 +13,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 PRODUCT_PACKAGES += \
     otafault \
-    cpio \
-    fec
+    cpio
 
 PRODUCT_SOONG_NAMESPACES += \
     device/lenovo/YT_X705X
