@@ -47,12 +47,5 @@ TW_EXTRA_LANGUAGES := true
 TW_DEVICE_VERSION := 1
 TW_INPUT_BLACKLIST := "hbtp_vm"
 ALLOW_MISSING_DEPENDENCIES := true
-
-# Fix for "could not make way for new symlink: root/etc"
-# This tells the build system to use the Toybox/Toolbox logic for the ramdisk
 TW_USE_TOOLBOX := true
 BOARD_HAS_NO_SELECT_BUTTON := true
-
-# USB Configuration
-TARGET_USES_MKE2FS := true
-BOARD_SUPPRESS_SECURE_ERASE := true
