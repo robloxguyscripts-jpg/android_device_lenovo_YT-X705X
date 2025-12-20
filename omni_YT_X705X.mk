@@ -4,13 +4,17 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
+
+# Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
+# Inherit from YT_X705X device - FULL PATH FIX
 $(call inherit-product, device/lenovo/android_device_lenovo_YT-X705X/device.mk)
 
+# Product naming
 PRODUCT_DEVICE := YT_X705X
 PRODUCT_NAME := omni_YT_X705X
 PRODUCT_BRAND := Lenovo
