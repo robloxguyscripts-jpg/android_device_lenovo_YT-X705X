@@ -10,16 +10,15 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Recovery tools
+
 PRODUCT_PACKAGES += \
     otafault \
     cpio \
     fec
 
-# Soong namespaces - Fixed to match your repo name
 PRODUCT_SOONG_NAMESPACES += \
-    device/lenovo/android_device_lenovo_YT-X705X
+    device/lenovo/YT_X705X
 
-# Copy hardware configs from your main branch into the TWRP image
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/recovery.fstab:recovery/root/system/etc/recovery.fstab \
-    $(DEVICE_PATH)/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc
+    device/lenovo/YT_X705X/recovery.fstab:recovery/root/system/etc/recovery.fstab \
+    device/lenovo/YT_X705X/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc
