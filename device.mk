@@ -19,6 +19,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     device/lenovo/YT_X705X
 
+# Fix the paths to match the long folder name
 PRODUCT_COPY_FILES += \
-    device/lenovo/YT_X705X/recovery.fstab:recovery/root/system/etc/recovery.fstab \
-    device/lenovo/YT_X705X/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc
+    device/lenovo/android_device_lenovo_YT-X705X/recovery.fstab:recovery/root/system/etc/recovery.fstab \
+    device/lenovo/android_device_lenovo_YT-X705X/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc
