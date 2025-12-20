@@ -7,6 +7,9 @@
 
 DEVICE_PATH := device/lenovo/YT-X705X
 
+# Fix: Use underscore to match the lunch target and AndroidProducts.mk
+TARGET_DEVICE := YT_X705X
+
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
 
@@ -47,7 +50,7 @@ BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_CONFIG := YT-X705X_defconfig
 TARGET_KERNEL_SOURCE := kernel/lenovo/YT-X705X
 
-# Kernel - prebuilt
+# Kernel - prebuilt (Make sure these files exist in your 'prebuilt' folder)
 TARGET_FORCE_PREBUILT_KERNEL := true
 ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
@@ -96,3 +99,4 @@ TW_EXTRA_LANGUAGES := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
+
