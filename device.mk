@@ -19,5 +19,5 @@ PRODUCT_SOONG_NAMESPACES += \
     device/lenovo/YT_X705X
 
 PRODUCT_COPY_FILES += \
-    device/lenovo/YT_X705X/recovery.fstab:recovery/root/etc/recovery.fstab \
+    device/lenovo/YT_X705X/recovery.fstab:recovery/root/system/etc/recovery.fstab \
     device/lenovo/YT_X705X/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc
