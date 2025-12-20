@@ -5,9 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-LOCAL_PATH := device/lenovo/YT-X705X
-
-# Inherit from core AOSP products
+# Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
@@ -17,6 +15,7 @@ PRODUCT_PACKAGES += \
     cpio \
     fec
 
-# Ensure the build system sees the namespace defined in Android.bp
+# Soong namespaces
+# This must match the folder path where your tree is cloned
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    device/lenovo/YT-X705X
