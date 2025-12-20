@@ -15,7 +15,11 @@ PRODUCT_PACKAGES += \
     cpio \
     fec
 
-# Soong namespaces
-# This must match the folder path where your tree is cloned
+# Soong namespaces - Fixed to match your repo name
 PRODUCT_SOONG_NAMESPACES += \
-    device/lenovo/YT-X705X
+    device/lenovo/android_device_lenovo_YT-X705X
+
+# Copy hardware configs from your main branch into the TWRP image
+PRODUCT_COPY_FILES += \
+    device/lenovo/android_device_lenovo_YT-X705X/recovery.fstab:recovery/root/system/etc/recovery.fstab \
+    device/lenovo/android_device_lenovo_YT-X705X/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc
