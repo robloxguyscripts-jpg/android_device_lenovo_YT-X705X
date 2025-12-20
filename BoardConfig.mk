@@ -17,7 +17,7 @@ TARGET_2ND_CPU_VARIANT := generic
 TARGET_BOOTLOADER_BOARD_NAME := sdm439
 TARGET_NO_BOOTLOADER := true
 
-# Kernel - Addresses and Offsets (From your AIK Log)
+# Kernel - Addresses and Offsets
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_BOOTIMG_HEADER_VERSION := 1
@@ -29,15 +29,21 @@ BOARD_RECOVERY_DTBO_OFFSET := 21387264
 # Kernel - Command Line
 BOARD_KERNEL_CMDLINE := androidboot.console=ttyMSM0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_serial_dm,0x78B0000 firmware_class.path=/vendor/firmware_mnt/image androidboot.usbconfigfs=true loop.max_part=7 printk.devkmsg=on buildvariant=user
 
-# MKBOOTIMG Arguments
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS += --kernel_offset $(BOARD_KERNEL_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --recovery_dtbo_offset $(BOARD_RECOVERY_DTBO_OFFSET)
 
-# Kernel - Prebuilt Files (Pointed to Main Folder)
+# Kernel - Prebuilt Files
 TARGET_FORCE_PREBUILT_KERNEL := true
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/kernel
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/dtbo.img
-BOARD_
+BOARD_INCLUDE_RECOVERY_DTBO := true
+
+# TWRP Configuration
+TW_THEME := portrait_hdpi
+TW_EXTRA_LANGUAGES := true
+TW_INCLUDE_CRYPTO := true
+TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
+TW_MAX_BRIGHTNESS := 2047
