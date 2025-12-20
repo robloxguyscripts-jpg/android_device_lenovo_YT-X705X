@@ -1,4 +1,5 @@
-DEVICE_PATH := device/lenovo/android_device_lenovo_YT-X705X
+# Pathing - MUST MATCH THE FOLDER NAME IN WORKFLOW
+DEVICE_PATH := device/lenovo/YT_X705X
 
 # Architecture
 TARGET_ARCH := arm64
@@ -35,15 +36,19 @@ BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --recovery_dtbo_offset $(BOARD_RECOVERY_DTBO_OFFSET)
 
-# Kernel - Prebuilt Files
+# Kernel - prebuilt
 TARGET_FORCE_PREBUILT_KERNEL := true
+ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/kernel
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/dtbo.img
-BOARD_INCLUDE_RECOVERY_DTBO := true
+BOARD_INCLUDE_RECOVERY_DTBO := true 
+endif
 
-# TWRP Configuration
+# TWRP Specifics
 TW_THEME := portrait_hdpi
 TW_EXTRA_LANGUAGES := true
+TW_SCREEN_BLANK_ON_BOOT := true
+TW_USE_TOOLBOX := true
 TW_INCLUDE_CRYPTO := true
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_MAX_BRIGHTNESS := 2047
