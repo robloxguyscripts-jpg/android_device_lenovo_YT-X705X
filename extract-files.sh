@@ -8,8 +8,12 @@
 
 set -e
 
-DEVICE=YT-X705X
+# Fix: Use underscore to match the build system's TARGET_DEVICE
+DEVICE=YT_X705X
 VENDOR=lenovo
+
+# Load extract_utils and do some sanity checks
+MY_DIR="${BASH_SOURCE%/*}"
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
