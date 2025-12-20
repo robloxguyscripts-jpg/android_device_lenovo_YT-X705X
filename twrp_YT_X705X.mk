@@ -1,21 +1,16 @@
-#
-# Copyright (C) 2025 The Android Open Source Project
-# Copyright (C) 2025 SebaUbuntu's TWRP device tree generator
-#
-# SPDX-License-Identifier: Apache-2.0
-#
-
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-# FIX: This path must match your "Device Path" in the Action menu
+# Inherit TWRP common configuration (Required for AOSP manifest)
+$(call inherit-product, vendor/twrp/config/common.mk)
+
+# Inherit from the device configuration
+# Ensure this folder name matches exactly where you clone the repo
 $(call inherit-product, device/lenovo/android_device_lenovo_YT-X705X/device.mk)
 
 PRODUCT_DEVICE := YT_X705X
-PRODUCT_NAME := omni_YT_X705X
+PRODUCT_NAME := twrp_YT_X705X
 PRODUCT_BRAND := Lenovo
 PRODUCT_MODEL := Lenovo YT-X705X
 PRODUCT_MANUFACTURER := lenovo
