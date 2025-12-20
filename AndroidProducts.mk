@@ -1,7 +1,7 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_YT_X705X.mk
+    $(LOCAL_DIR)/twrp_YT_X705X.mk
 
 COMMON_LUNCH_CHOICES := \
-    omni_YT_X705X-user \
-    omni_YT_X705X-userdebug \
-    omni_YT_X705X-eng
+    twrp_YT_X705X-user \
+    twrp_YT_X705X-userdebug \
+    twrp_YT_X705X-eng
