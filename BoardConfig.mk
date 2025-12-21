@@ -21,7 +21,7 @@ TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/kernel
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/dtbo.img
 BOARD_INCLUDE_RECOVERY_DTBO := true
 
-# Bootloader / Offsets - CLEANED FOR TWRP-11
+# Bootloader / Offsets - FIXED FOR AOSP MKBOOTIMG
 BOARD_BOOTIMG_HEADER_VERSION := 1
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -29,7 +29,8 @@ BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_RAMDISK_OFFSET := 0x01000000
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 
-# We removed the manual RECOVERY_DTBO_OFFSET line here to stop the mkbootimg crash
+# Combined Arguments for mkbootimg
+# Removed --recovery_dtbo_offset to prevent the "unrecognized arguments" error
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS += --kernel_offset $(BOARD_KERNEL_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
@@ -52,3 +53,7 @@ TW_USE_TOOLBOX := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 TW_MAX_BRIGHTNESS := 2047
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
+
+# Encryption & Metadata
+TW_INCLUDE_CRYPTO := true
+BOARD_USES_METADATA_PARTITION := true
