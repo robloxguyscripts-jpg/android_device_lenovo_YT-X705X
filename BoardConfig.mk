@@ -22,6 +22,7 @@ BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/dtbo.img
 BOARD_INCLUDE_RECOVERY_DTBO := true
 
 # Bootloader / Offsets - FIXED FOR AOSP MKBOOTIMG
+# We use Header Version 1. In AOSP-11, mkbootimg.py attaches the DTBO automatically.
 BOARD_BOOTIMG_HEADER_VERSION := 1
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -30,7 +31,7 @@ BOARD_RAMDISK_OFFSET := 0x01000000
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 
 # Combined Arguments for mkbootimg
-# Removed --recovery_dtbo_offset to prevent the "unrecognized arguments" error
+# Removed --recovery_dtbo_offset to prevent the "unrecognized arguments" error.
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS += --kernel_offset $(BOARD_KERNEL_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
@@ -54,6 +55,9 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 TW_MAX_BRIGHTNESS := 2047
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 
-# Encryption & Metadata
+# Encryption & Metadata (Fixed for Android 10+ Hardware)
+# These flags allow TWRP to communicate with the Qualcomm Keymaster
 TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
 BOARD_USES_METADATA_PARTITION := true
+BOARD_USES_QCOM_FBE_DECRYPTION := true
